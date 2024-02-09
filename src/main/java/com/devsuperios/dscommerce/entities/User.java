@@ -1,7 +1,6 @@
 package com.devsuperios.dscommerce.entities;
 
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.atn.SemanticContext;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,6 +18,9 @@ public class User {
     private String phone;
     private LocalDate birthDate;
     private String password;
+
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
 
     public User(){
     }
@@ -80,4 +82,7 @@ public class User {
         this.password = password;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
 }
