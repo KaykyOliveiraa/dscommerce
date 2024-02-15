@@ -95,7 +95,9 @@ public class User {
 
         User user = (User) o;
 
-        return Objects.equals(id, user.id);
+        if (!Objects.equals(id, user.id)) return false;
+
+        return true;
     }
 
     @Override
